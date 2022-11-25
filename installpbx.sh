@@ -123,6 +123,7 @@ echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
 cd /root
 timedatectl set-timezone Europe/Zurich
 apt install sntp -y
+apt install ntpdate -y
 sntp -c 0.pool.ntp.org
 
 ###########################
