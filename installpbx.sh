@@ -79,7 +79,7 @@ os_release=${os_release:9}
 
 
 ### Check if the correct OS is used
-if [[ $os_id != "Debian" ]]; then
+if [[ "$os_id" != "Debian" ]]; then
     echo -e "${YELLOW} The Installation is only supported on Debian 10 / 11 systems!${NC}"
     exit 1
 fi
@@ -92,7 +92,7 @@ enterparameters
 clear
 message
 
-if [[ $os_release != "11" ]]; then
+if [[ "$os_release" != "11" ]]; then
     while $okinput; do
         if [ "$SELECT" -ge 1 ] && [ "$SELECT" -le 2 ]; then
             okinput=false
@@ -172,7 +172,7 @@ apt -y install lame ffmpeg postfix odbc-mariadb libicu-dev
 
 
 cd /usr/src/
-if [][ $SELECT = "1"]]; then    # Asterisk 16 on Debian 10
+if [[ $SELECT = "1" ]]; then    # Asterisk 16 on Debian 10
     wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-16-current.tar.gz
     tar xvf asterisk-16-current.tar.gz
     rm asterisk-16-current.tar.gz
@@ -238,7 +238,7 @@ systemctl restart mysql
 # mysql_secure_installation
 
 
-if [[ "$os_release" != "11"]]; then  # check with Debian version is used. Node 14 only on Debian 11
+if [[ "$os_release" != "11" ]]; then  # check with Debian version is used. Node 14 only on Debian 11
     curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 else
     curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
@@ -363,7 +363,7 @@ sudo fwconsole ma installall
 sudo fwconsole ma delete firewall
 
 ##### Install patches for Debian 11
-if [[ "os_release" = "11"]]; then
+if [[ "os_release" = "11" ]]; then
     cd /var/www/html/admin/modules/ucp/node/lib
     mv config.js config.js.orig
     mv freepbx.js freepbx.js.orig
