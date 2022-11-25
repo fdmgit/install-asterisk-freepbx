@@ -303,7 +303,7 @@ sleep 15
 echo 'Sleep done'
 
 ############ Prepare update to support node.js > 11 (only on Debian 11)
-if [[ "os_release" = "11"]]; then
+if [[ "os_release" = "11" ]]; then
     cd /root
     wget https://raw.githubusercontent.com/FreePBX/ucp/release/17.0/node/lib/config.js
     wget https://raw.githubusercontent.com/FreePBX/ucp/release/17.0/node/lib/freepbx.js
