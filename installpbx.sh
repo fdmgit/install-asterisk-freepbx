@@ -388,7 +388,7 @@ mysql_secure_installation  # make MariaDB secure
 ###### Install MariaDB access tool
 cd /var/www/html
 wget https://raw.githubusercontent.com/fdmgit/install-asterisk-freepbx/main/adminer.php
-chown asterisk:astersik adminer.php
+chown asterisk:asterisk adminer.php
 
 ##### Create DB user
 mysql -e "CREATE USER admindb@localhost IDENTIFIED BY '$DBUSERPWD';"
