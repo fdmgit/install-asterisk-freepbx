@@ -17,7 +17,7 @@ echo -e "\n ---------------------------------------"
 echo -e "\n"
 read -p " Enter root password : ${NC}" ROOTPW
 read -p "${LBLUE} Enter domain name (FQDN) ${NC}: " FQDN
-echo -e "\n Setup DB user 'admindb'"
+echo -e "\n${LBLUE} Setup DB user 'admindb' ${NC}"
 read -p "${LBLUE} Enter DB user password : ${NC}" DBUSERDB
 }
 
