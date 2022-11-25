@@ -381,4 +381,10 @@ fi
 sudo fwconsole reload
 sudo fwconsole restart
 
+mysql_secure_installation  # make MariaDB secure 
+cd /var/www/html
+wget 
+
+
+
 reboot
