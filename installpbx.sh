@@ -12,7 +12,7 @@
 
 enterparameters () {
 echo -e "\n${LBLUE} ---------------------------------------"
-echo -e "\n Start FreePBX / Asterisk INstallation:"
+echo -e "\n Start FreePBX / Asterisk Installation:"
 echo -e "\n ---------------------------------------"
 echo -e "\n"
 read -p " Enter root password : ${NC}" ROOTPW
