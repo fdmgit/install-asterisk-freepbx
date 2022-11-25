@@ -92,7 +92,7 @@ enterparameters
 clear
 message
 
-if [[ $os_release != "11"]]
+if [[ $os_release != "11"]]; then
     while $okinput; do
         if [ "$SELECT" -ge 1 ] && [ "$SELECT" -le 2 ]; then
             okinput=false
