@@ -16,7 +16,7 @@ echo -e "\n Start FreePBX / Asterisk Installation:"
 echo -e "\n ---------------------------------------"
 echo -e "\n"
 read -p " Enter root password : ${NC}" ROOTPW
-read -p "${LBLUE} Enter domain name (FQDN) : " FQDN
+read -p "${LBLUE} Enter domain name (FQDN) ${NC}: " FQDN
 echo -e "\n Setup DB user 'admindb'"
 read -p "${LBLUE} Enter DB user password : ${NC}" DBUSERDB
 }
