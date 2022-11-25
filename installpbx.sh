@@ -16,7 +16,9 @@ echo -e "\n Start FreePBX / Asterisk Installation:"
 echo -e "\n ---------------------------------------"
 echo -e "\n"
 read -p " Enter root password : ${NC}" ROOTPW
-read -p "${LBLUE} Enter domain name (FQDN) : ${NC}" FQDN
+read -p "${LBLUE} Enter domain name (FQDN) : " FQDN
+echo -e "\n Setup DB user 'admindb'"
+read -p "${LBLUE} Enter DB user password : ${NC}" DBUSERDB
 }
 
 message () {
@@ -382,9 +384,17 @@ sudo fwconsole reload
 sudo fwconsole restart
 
 mysql_secure_installation  # make MariaDB secure 
+
+###### Install MariaDB access tool
 cd /var/www/html
-wget 
+wget https://raw.githubusercontent.com/fdmgit/install-asterisk-freepbx/main/adminer.php
+chown asterisk:astersik adminer.php
 
+##### Create DB user
+mysql -e "CREATE USER admindb@localhost IDENTIFIED BY '$DBUSERPWD';"
+mysql -e "GRANT ALL PRIVILEGES ON asterisk.* TO 'admindb'@'localhost';"
+mysql -e "FLUSH PRIVILEGES;"
 
+updatedb    #### update locate DB
 
 reboot
