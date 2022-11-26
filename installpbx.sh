@@ -306,7 +306,7 @@ fi
 #######
 
 cd /usr/src
-wget http://mirror.freepbx.org/modules/packages/freepbx/7.4/freepbx-16.0-latest.tgz
+wget http://mirror.freepbx.org/modules/packages/freepbx/freepbx-16.0-latest.tgz
 
 tar xfz freepbx-16.0-latest.tgz
 rm -f freepbx-16.0-latest.tgz
