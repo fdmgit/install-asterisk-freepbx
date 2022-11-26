@@ -164,14 +164,6 @@ apt -y install lame ffmpeg postfix odbc-mariadb libicu-dev
 #  Install Asterisk 
 ##############################
 
-apt -y install git vim curl wget libnewt-dev libssl-dev libncurses5-dev subversion libsqlite3-dev build-essential libjansson-dev libxml2-dev uuid-dev
-apt -y install bison flex sqlite3 pkg-config automake libtool autoconf unixodbc-dev uuid sox mpg123 linux-headers-`uname -r`
-apt -y install libasound2-dev libogg-dev libvorbis-dev libicu-dev libcurl4-openssl-dev libical-dev libneon27-dev libsrtp2-dev
-apt -y install libspandsp-dev libtool-bin python-dev unixodbc dirmngr sendmail-bin sendmail
-apt -y install apt-transport-https lsb-release ca-certificates gcc g++ make
-apt -y install lame ffmpeg postfix odbc-mariadb libicu-dev
-
-
 cd /usr/src/
 if [[ $SELECT = "1" ]]; then    # Asterisk 16 on Debian 10
     wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-16-current.tar.gz
