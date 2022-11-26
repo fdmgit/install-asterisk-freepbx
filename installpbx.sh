@@ -26,10 +26,9 @@ echo -e "\n${LBLUE} ---------------------------------------"
 echo -e "\n Select setup of FreePBX / Asterisk:"
 echo -e " 1: Asterisk 16 / FreePBX 16 (Debian 10)"
 echo -e " 2: Asterisk 18 / FreePBX 16 (Debian 10)"
-echo -e " 3: Asterisk 18 / FreePBX 16 (Debian 11)"
 echo -e "\n ---------------------------------------"
 echo -e "\n"
-read -p " Select (1,2,3) : ${NC}" SELECT
+read -p " Select (1,2) : ${NC}" SELECT
 }
 
 ######################################
