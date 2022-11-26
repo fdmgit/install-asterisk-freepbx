@@ -18,7 +18,7 @@ echo -e "\n"
 read -p " Enter root password : ${NC}" ROOTPW
 read -p "${LBLUE} Enter domain name (FQDN) ${NC}: " FQDN
 echo -e "\n${LBLUE} Setup DB user 'admindb' ${NC}"
-read -p "${LBLUE} Enter DB user password : ${NC}" DBUSERDB
+read -p "${LBLUE} Enter DB user password : ${NC}" DBUSERPWD
 }
 
 message () {
@@ -388,9 +388,9 @@ wget https://raw.githubusercontent.com/fdmgit/install-asterisk-freepbx/main/admi
 chown asterisk:asterisk adminer.php
 
 ##### Create DB user
-mysql -u root -e "CREATE USER admindb@localhost IDENTIFIED BY '$DBUSERPWD';"
-mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'admindb'@'localhost';"
-mysql -u root -e "FLUSH PRIVILEGES;"
+mysql -e "CREATE USER admindb@localhost IDENTIFIED BY '$DBUSERPWD';"
+mysql -e "GRANT ALL PRIVILEGES ON asterisk.* TO 'admindb'@'localhost';"
+mysql -e "FLUSH PRIVILEGES;"
 
 mysql_secure_installation  # make MariaDB secure 
 
