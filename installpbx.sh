@@ -386,6 +386,13 @@ mysql -e "FLUSH PRIVILEGES;"
 
 mysql_secure_installation  # make MariaDB secure 
 
+
+#### Clean up
+cd /root
+rm config.js
+rm freepbx.js
+rm server.js
+
 updatedb    #### update locate DB
 
 reboot
