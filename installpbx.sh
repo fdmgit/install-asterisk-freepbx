@@ -389,9 +389,9 @@ wget https://raw.githubusercontent.com/fdmgit/install-asterisk-freepbx/main/admi
 chown asterisk:asterisk adminer.php
 
 ##### Create DB user
-#mysql -e "CREATE USER admindb@localhost IDENTIFIED BY '$DBUSERPWD';"
-#mysql -e "GRANT ALL PRIVILEGES ON asterisk.* TO 'admindb'@'localhost';"
-#mysql -e "FLUSH PRIVILEGES;"
+mysql -e "CREATE USER admindb@localhost IDENTIFIED BY '$DBUSERPWD';"
+mysql -e "GRANT ALL PRIVILEGES ON asterisk.* TO 'admindb'@'localhost';"
+mysql -e "FLUSH PRIVILEGES;"
 
 mysql_secure_installation  # make MariaDB secure 
 
