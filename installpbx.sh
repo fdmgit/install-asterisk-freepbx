@@ -123,8 +123,8 @@ echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
 
 cd /root
 timedatectl set-timezone Europe/Zurich
-apt install sntp -y
-apt install ntpdate -y
+apt-get install sntp -y
+apt-get install ntpdate -y
 sntp -c 0.pool.ntp.org
 
 ###########################
@@ -141,7 +141,7 @@ rm webmin_2.001_all.deb
 #  Some additional programs
 ##############################
 
-apt install plocate -y
+apt-get install plocate -y
 updatedb
 
 echo "root:$ROOTPW" | chpasswd   # set root password -
@@ -152,12 +152,12 @@ hostnamectl set-hostname $FQDN   # set hostname
 #  Install pre-requisites
 ##############################
 
-apt -y install git vim curl wget libnewt-dev libssl-dev libncurses5-dev subversion libsqlite3-dev build-essential libjansson-dev libxml2-dev uuid-dev
-apt -y install bison flex sqlite3 pkg-config automake libtool autoconf unixodbc-dev uuid sox mpg123 linux-headers-`uname -r`
-apt -y install libasound2-dev libogg-dev libvorbis-dev libicu-dev libcurl4-openssl-dev libical-dev libneon27-dev libsrtp2-dev
-apt -y install libspandsp-dev libtool-bin python-dev unixodbc dirmngr
-apt -y install apt-transport-https lsb-release ca-certificates gcc g++ make
-apt -y install lame ffmpeg postfix odbc-mariadb libicu-dev
+apt-get -y install git vim curl wget libnewt-dev libssl-dev libncurses5-dev subversion libsqlite3-dev build-essential libjansson-dev libxml2-dev uuid-dev
+apt-get -y install bison flex sqlite3 pkg-config automake libtool autoconf unixodbc-dev uuid sox mpg123 linux-headers-`uname -r`
+apt-get -y install libasound2-dev libogg-dev libvorbis-dev libicu-dev libcurl4-openssl-dev libical-dev libneon27-dev libsrtp2-dev
+apt-get -y install libspandsp-dev libtool-bin python-dev unixodbc dirmngr
+apt-get -y install apt-transport-https lsb-release ca-certificates gcc g++ make
+apt-get -y install lame ffmpeg postfix odbc-mariadb libicu-dev
 
 
 ##############################
@@ -219,8 +219,8 @@ echo 'Sleep done'
 #  Install FreePBX Pre-req
 ###########################
 
-apt update
-apt install -y mariadb-server mariadb-client
+apt-get update
+apt-get install -y mariadb-server mariadb-client
 
 echo '[mysqld]' >> /etc/mysql/mariadb.cnf
 echo 'sql_mode=NO_ENGINE_SUBSTITUTION'  >> /etc/mysql/mariadb.cnf
@@ -236,9 +236,9 @@ if [[ "$os_release" != "11" ]]; then  # check with Debian version is used. Node 
 else
     curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 fi
-apt install -y nodejs
+apt-get install -y nodejs
 
-sudo apt install -y apache2
+apt-get install -y apache2
 
 # change Apache user to asterisk and turn on AllowOverride option
 cp /etc/apache2/apache2.conf /etc/apache2/apache2.conf_orig
@@ -254,13 +254,13 @@ wget -qO - https://packages.sury.org/php/apt.gpg | sudo apt-key add -
 echo "deb https://packages.sury.org/apache2/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/sury-apache2.list
 wget -qO - https://packages.sury.org/apache2/apt.gpg | sudo apt-key add -
 
-apt update
+apt-get update
 
-apt install php7.4 php7.4-mysql php7.4-cgi php7.4-cli php7.4-common php7.4-imap php7.4-ldap \
+apt-get install php7.4 php7.4-mysql php7.4-cgi php7.4-cli php7.4-common php7.4-imap php7.4-ldap \
 php7.4-xml php7.4-fpm php7.4-curl php7.4-mbstring php7.4-zip php7.4-gd php7.4-xml php7.4-json \
 php7.4-bcmath php-pear -y
 
-apt install libapache2-mod-php7.4 -y
+apt-get install libapache2-mod-php7.4 -y
 
 pear install Console_Getopt -y
 
