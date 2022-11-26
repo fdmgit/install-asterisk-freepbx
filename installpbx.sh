@@ -165,7 +165,7 @@ apt-get -y install lame ffmpeg postfix odbc-mariadb libicu-dev
 ##############################
 
 cd /usr/src/
-if [[ $SELECT = "1" ]]; then    # Asterisk 16 on Debian 10
+if [[ "$SELECT" == "1" ]]; then    # Asterisk 16 on Debian 10
     wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-16-current.tar.gz
     tar xvf asterisk-16-current.tar.gz
     rm asterisk-16-current.tar.gz
@@ -296,7 +296,7 @@ sleep 15
 echo 'Sleep done'
 
 ############ Prepare update to support node.js > 11 (only on Debian 11)
-if [[ "os_release" = "11" ]]; then
+if [[ "$os_release" == "11" ]]; then
     cd /root
     wget https://raw.githubusercontent.com/FreePBX/ucp/release/17.0/node/lib/config.js
     wget https://raw.githubusercontent.com/FreePBX/ucp/release/17.0/node/lib/freepbx.js
@@ -356,7 +356,7 @@ sudo fwconsole ma installall
 sudo fwconsole ma delete firewall
 
 ##### Install patches for Debian 11
-if [[ "os_release" = "11" ]]; then
+if [[ "$os_release" == "11" ]]; then
     cd /var/www/html/admin/modules/ucp/node/lib
     mv config.js config.js.orig
     mv freepbx.js freepbx.js.orig
