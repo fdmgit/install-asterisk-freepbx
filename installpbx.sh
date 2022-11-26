@@ -388,10 +388,13 @@ mysql_secure_installation  # make MariaDB secure
 
 
 #### Clean up
-cd /root
-rm config.js
-rm freepbx.js
-rm server.js
+
+if [[ "$os_release" == "11" ]]; then
+    cd /root
+    rm config.js
+    rm freepbx.js
+    rm server.js
+fi
 
 updatedb    #### update locate DB
 
