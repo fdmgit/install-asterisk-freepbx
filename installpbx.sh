@@ -110,12 +110,17 @@ fi
 #  Set Swap Space
 ###########################
 
-fallocate -l 1G /swapfile
-chmod 600 /swapfile
-mkswap /swapfile
-swapon /swapfile
-echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
+cd /root
+swapon --show > swapon.out.       ## check if swap exists
+FILESIZE=$(stat -c%s swapon.out)
 
+if (( FILESIZE = 0 )); then.  ## swap space does not exist
+   fallocate -l 1G /swapfile
+   chmod 600 /swapfile
+   mkswap /swapfile
+   swapon /swapfile
+   echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
+fi
 
 ###########################
 #  Set Time Zone
