@@ -111,7 +111,7 @@ fi
 ###########################
 
 cd /root
-swapon --show > swapon.out.       ## check if swap exists
+swapon --show > swapon.out       ## check if swap exists
 FILESIZE=$(stat -c%s swapon.out)
 
 if (( FILESIZE = 0 )); then.  ## swap space does not exist
