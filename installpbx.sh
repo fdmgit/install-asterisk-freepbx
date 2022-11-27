@@ -351,9 +351,10 @@ EOF
 systemctl daemon-reload
 systemctl enable freepbx.service
 
-sudo fwconsole ma disablerepo commercial
-sudo fwconsole ma installall
-sudo fwconsole ma delete firewall
+fwconsole ma disablerepo commercial
+fwconsole ma installall
+fwconsole ma delete firewall
+fwconsole ma delete sms
 
 ##### Install patches for Debian 11
 if [[ "$os_release" == "11" ]]; then
