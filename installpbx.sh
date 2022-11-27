@@ -385,6 +385,7 @@ fwconsole ma disablerepo commercial
 fwconsole ma installall
 fwconsole ma delete firewall
 fwconsole ma delete sms
+fwconsole ma delete xmpp
 
 ##### Install patches for Debian 11
 if [[ "$os_release" == "11" ]]; then
