@@ -34,7 +34,7 @@ message () {
 fop2msg () {
     echo -e "\n${LBLUE} ---------------------------------------"
     echo -e "\n Do you want to install FOP2 ?"
-    read -p " Install FOP2 (y/n)" FOP"INST
+    read -p " Install FOP2 (y/n) : ${NC}" FOP2INST
 }
 
 ######################################
@@ -113,8 +113,8 @@ fi
 
 while $okinput; do
     fop2msg  
-    $FOP2INST=${FOP2INST^^}
-    if [ "$FOP2INST" == "Y" || && [ "$FOP2INST" == "N" ]; then
+    FOP2INST=${FOP2INST^^}
+    if [[ "$FOP2INST" == "Y" ]] || [[ "$FOP2INST" == "N" ]]; then
         okinput=false
     else
         clear
