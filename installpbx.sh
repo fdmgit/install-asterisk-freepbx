@@ -132,9 +132,9 @@ sntp -c 0.pool.ntp.org
 ###########################
 
 apt-get -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python unzip shared-mime-info
-wget http://prdownloads.sourceforge.net/webadmin/webmin_2.001_all.deb
-dpkg --install webmin_2.001_all.deb
-rm webmin_2.001_all.deb
+wget http://prdownloads.sourceforge.net/webadmin/webmin_2.003_all.deb
+dpkg --install webmin_2.003_all.deb
+rm webmin_2.003_all.deb
 
 
 ##############################
