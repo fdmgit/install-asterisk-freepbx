@@ -111,6 +111,7 @@ if [[ "$os_release" != "11" ]]; then
     done
 fi
 
+clear
 okinput=true
 
 while $okinput; do
