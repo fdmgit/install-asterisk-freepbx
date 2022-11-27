@@ -401,6 +401,24 @@ fi
 sudo fwconsole reload
 sudo fwconsole restart
 
+###########################
+#  Install FOP2
+###########################
+
+if [[ "$FOP2INST" == "Y" ]]; then
+    cd /usr/src
+    wget http://www.fop2.com/download/debian64 -O fop2.tgz
+    tar zxvf fop2.tgz
+    cd fop2
+    make
+    cp server/create_fop2_manager_user.pl .
+    chmod a+x create_fop2_manager_user.pl
+    ./create_fop2_manager_user.pl
+    /usr/sbin/asterisk -rx "manager reload"
+    /usr/local/fop2/generate_override_contexts.pl -w
+    service fop2 restart
+fi
+
 ###### Install MariaDB access tool
 cd /var/www/html
 wget https://raw.githubusercontent.com/fdmgit/install-asterisk-freepbx/main/adminer.php
