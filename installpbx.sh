@@ -141,6 +141,12 @@ wget http://prdownloads.sourceforge.net/webadmin/webmin_2.003_all.deb
 dpkg --install webmin_2.003_all.deb
 rm webmin_2.003_all.deb
 
+##### Temporary fix for a bug in Webmin 2.003  (27.11.2022)
+wget https://raw.githubusercontent.com/fdmgit/install-asterisk-freepbx/main/websockets-lib-funcs.pl
+cp websockets-lib-funcs.pl /usr/share/webmin/
+rm websockets-lib-funcs.pl
+#####
+
 
 ##############################
 #  Some additional programs
