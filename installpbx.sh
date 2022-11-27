@@ -111,6 +111,17 @@ if [[ "$os_release" != "11" ]]; then
     done
 fi
 
+while $okinput; do
+    fop2msg  
+    $FOP2INST=${FOP2INST^^}
+    if [ "$FOP2INST" == "Y" || && [ "$FOP2INST" == "N" ]; then
+        okinput=false
+    else
+        clear
+        echo -e  "\n\n${LRED} >>>>  Wrong selection ! Try again.${NC}"
+        fop2msg
+    fi
+done
 
 ###########################
 #  Set Swap Space
