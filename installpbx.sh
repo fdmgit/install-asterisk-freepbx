@@ -111,6 +111,8 @@ if [[ "$os_release" != "11" ]]; then
     done
 fi
 
+okinput=true
+
 while $okinput; do
     fop2msg  
     FOP2INST=${FOP2INST^^}
