@@ -181,7 +181,7 @@ if [[ "$SELECT" == "1" ]]; then    # Asterisk 16 on Debian 10
     tar xvf asterisk-16-current.tar.gz
     rm asterisk-16-current.tar.gz
     cd asterisk-16*/
-else                            # Asterisk 18 on Debian 16 or Debian 11 
+else                               # Asterisk 18 on Debian 16 or Debian 11 
     wget https://downloads.asterisk.org/pub/telephony/asterisk/asterisk-18-current.tar.gz
     tar xvf asterisk-18-current.tar.gz
     rm asterisk-18-current.tar.gz
@@ -242,7 +242,7 @@ systemctl restart mysql
 # mysql_secure_installation
 
 
-if [[ "$os_release" != "11" ]]; then  # check with Debian version is used. Node 14 only on Debian 11
+if [[ "$os_release" != "11" ]]; then        # check with Debian version is used. Node 14 only on Debian 11
     curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 else
     curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
