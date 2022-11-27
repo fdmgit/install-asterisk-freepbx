@@ -73,7 +73,7 @@ apt-get update > /dev/null
 apt-get upgrade -y > /dev/null
 apt-get install lsb-release -y > /dev/null
 
-clear
+clear             # clear screen
 
 os_id=$(lsb_release -i)
 os_release=$(lsb_release -r)
@@ -96,7 +96,7 @@ fi
 ############
 
 enterparameters
-clear
+clear             # clear screen
 
 if [[ "$os_release" != "11" ]]; then
     while $okinput; do
@@ -111,7 +111,7 @@ if [[ "$os_release" != "11" ]]; then
     done
 fi
 
-clear
+clear              # clear screen
 okinput=true
 
 while $okinput; do
@@ -120,7 +120,7 @@ while $okinput; do
     if [[ "$FOP2INST" == "Y" ]] || [[ "$FOP2INST" == "N" ]]; then
         okinput=false
     else
-        clear
+        clear.     # clear screen
         echo -e  "\n\n${LRED} >>>>  Wrong selection ! Try again.${NC}"
         fop2msg
     fi
