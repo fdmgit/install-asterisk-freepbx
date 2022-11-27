@@ -139,6 +139,8 @@ if (( FILESIZE = 0 )); then      ## swap space does not exist
    echo '/swapfile swap swap defaults 0 0' >> /etc/fstab
 fi
 
+rm swapon.out
+
 ###########################
 #  Set Time Zone
 ###########################
@@ -417,6 +419,7 @@ if [[ "$FOP2INST" == "Y" ]]; then
     /usr/sbin/asterisk -rx "manager reload"
     /usr/local/fop2/generate_override_contexts.pl -w
     service fop2 restart
+    rm /usr/src/fop2.tgz
 fi
 
 ###### Install MariaDB access tool
