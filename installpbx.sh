@@ -11,24 +11,30 @@
 ######################################
 
 enterparameters () {
-echo -e "\n${LBLUE} ---------------------------------------"
-echo -e "\n Start FreePBX / Asterisk Installation:"
-echo -e "\n ---------------------------------------"
-echo -e "\n"
-read -p " Enter root password : ${NC}" ROOTPW
-read -p "${LBLUE} Enter domain name (FQDN) ${NC}: " FQDN
-echo -e "\n${LBLUE} Setup DB user 'admindb' ${NC}"
-read -p "${LBLUE} Enter DB user password : ${NC}" DBUSERPWD
+    echo -e "\n${LBLUE} ---------------------------------------"
+    echo -e "\n Start FreePBX / Asterisk Installation:"
+    echo -e "\n ---------------------------------------"
+    echo -e "\n"
+    read -p " Enter root password : ${NC}" ROOTPW
+    read -p "${LBLUE} Enter domain name (FQDN) ${NC}: " FQDN
+    echo -e "\n${LBLUE} Setup DB user 'admindb' ${NC}"
+    read -p "${LBLUE} Enter DB user password : ${NC}" DBUSERPWD
 }
 
 message () {
-echo -e "\n${LBLUE} ---------------------------------------"
-echo -e "\n Select setup of FreePBX / Asterisk:"
-echo -e " 1: Asterisk 16 / FreePBX 16 (Debian 10)"
-echo -e " 2: Asterisk 18 / FreePBX 16 (Debian 10)"
-echo -e "\n ---------------------------------------"
-echo -e "\n"
-read -p " Select (1,2) : ${NC}" SELECT
+    echo -e "\n${LBLUE} ---------------------------------------"
+    echo -e "\n Select setup of FreePBX / Asterisk:"
+    echo -e " 1: Asterisk 16 / FreePBX 16 (Debian 10)"
+    echo -e " 2: Asterisk 18 / FreePBX 16 (Debian 10)"
+    echo -e "\n ---------------------------------------"
+    echo -e "\n"
+    read -p " Select (1,2) : ${NC}" SELECT
+}
+
+fop2msg () {
+    echo -e "\n${LBLUE} ---------------------------------------"
+    echo -e "\n Do you want to install FOP2 ?"
+    read -p " Install FOP2 (y/n)" FOP"INST
 }
 
 ######################################
@@ -239,15 +245,12 @@ echo 'sql_mode=NO_ENGINE_SUBSTITUTION'  >> /etc/mysql/mariadb.cnf
 
 systemctl restart mysql
 
-# Initial DB setup and set root's password for DB
-# mysql_secure_installation
-
-
 if [[ "$os_release" != "11" ]]; then        # check with Debian version is used. Node 14 only on Debian 11
     curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
 else
     curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 fi
+
 apt-get install -y nodejs
 
 apt-get install -y apache2
@@ -398,7 +401,6 @@ mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'admindb'@'localhost';"
 mysql -u root -e "FLUSH PRIVILEGES;"
 
 mysql_secure_installation  # make MariaDB secure 
-
 
 #### Clean up
 
