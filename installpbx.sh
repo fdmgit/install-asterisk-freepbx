@@ -42,21 +42,21 @@ menuset () {
     menuselect/menuselect --enable chan_ooh323 menuselect.makeopts
     menuselect/menuselect --enable format_mp3 menuselect.makeopts
     menuselect/menuselect --enable app_macro menuselect.makeopts
-    menuselect/menuselect --disable cdr_pqsql menuselect.makeopts
+    menuselect/menuselect --disable cdr_pgsql menuselect.makeopts
     menuselect/menuselect --disable cdr_radius menuselect.makeopts
-    menuselect/menuselect --disable cel_pqsql menuselect.makeopts
+    menuselect/menuselect --disable cel_pgsql menuselect.makeopts
     menuselect/menuselect --disable cel_radius menuselect.makeopts
     menuselect/menuselect --enable CORE-SOUNDS-EN-WAV menuselect.makeopts
     menuselect/menuselect --enable CORE-SOUNDS-EN-ULAW menuselect.makeopts
     menuselect/menuselect --enable CORE-SOUNDS-EN-ALAW menuselect.makeopts
     menuselect/menuselect --enable CORE-SOUNDS-EN-G729 menuselect.makeopts
     menuselect/menuselect --enable CORE-SOUNDS-EN-G722 menuselect.makeopts
-    menuselect/menuselect --enable MOH-OPSOUNDS-WAV menuselect.makeopts
-    menuselect/menuselect --enable MOH-OPSOUNDS-ULAW menuselect.makeopts
-    menuselect/menuselect --enable MOH-OPSOUNDS-ALAW menuselect.makeopts
-    menuselect/menuselect --enable MOH-OPSOUNDS-GSM menuselect.makeopts
-    menuselect/menuselect --enable MOH-OPSOUNDS-G729 menuselect.makeopts
-    menuselect/menuselect --enable MOH-OPSOUNDS-G722 menuselect.makeopts
+    menuselect/menuselect --enable MOH-OPSOUND-WAV menuselect.makeopts
+    menuselect/menuselect --enable MOH-OPSOUND-ULAW menuselect.makeopts
+    menuselect/menuselect --enable MOH-OPSOUND-ALAW menuselect.makeopts
+    menuselect/menuselect --enable MOH-OPSOUND-GSM menuselect.makeopts
+    menuselect/menuselect --enable MOH-OPSOUND-G729 menuselect.makeopts
+    menuselect/menuselect --enable MOH-OPSOUND-G722 menuselect.makeopts
     menuselect/menuselect --enable EXTRA-SOUNDS-EN-WAV menuselect.makeopts
     menuselect/menuselect --enable EXTRA-SOUNDS-EN-ULAW menuselect.makeopts
     menuselect/menuselect --enable EXTRA-SOUNDS-EN-ALAW menuselect.makeopts
@@ -235,9 +235,9 @@ fi
 contrib/scripts/get_mp3_source.sh
 contrib/scripts/install_prereq install
 ./configure --with-pjproject-bundled --with-jansson-bundled
-make menuselect
+#make menuselect
 
-#menuset    # configure Asterisk modules
+menuset    # configure Asterisk modules
 
 read -p "check log" GOON
 
