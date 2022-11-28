@@ -483,7 +483,7 @@ fi
 #  Install Certbot
 ###########################
 
-apt-get install snapd
+apt-get -y install snapd 
 snap install core
 snap install hello-world
 hello-world                              # Test snapd
