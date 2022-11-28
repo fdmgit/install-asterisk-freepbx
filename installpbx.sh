@@ -212,7 +212,10 @@ apt-get -y install bison flex sqlite3 pkg-config automake libtool autoconf unixo
 apt-get -y install libasound2-dev libogg-dev libvorbis-dev libicu-dev libcurl4-openssl-dev libical-dev libneon27-dev libsrtp2-dev
 apt-get -y install libspandsp-dev libtool-bin python-dev unixodbc dirmngr
 apt-get -y install apt-transport-https lsb-release ca-certificates gcc g++ make
-apt-get -y install lame ffmpeg postfix odbc-mariadb libicu-dev
+apt-get -y install lame ffmpeg odbc-mariadb libicu-dev
+echo "postfix postfix/mailname string $FQDN" | debconf-set-selections
+echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set-selections
+DEBIAN_FRONTEND=noninteractive apt-get postfix
 
 
 ##############################
