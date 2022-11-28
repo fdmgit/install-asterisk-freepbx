@@ -67,6 +67,9 @@ menuset () {
 
 inst_apache_modules () {
     a2enmod rewrite
+    a2enmod ssl
+    a2enmod expires
+    a2enmod include
     systemctl restart apache2
 }
 
@@ -467,7 +470,7 @@ mysql -u root -e "FLUSH PRIVILEGES;"
 
 mysql_secure_installation  # make MariaDB secure 
 
-#### Clean up
+#### Clean up patch files (only Debian 11)
 
 if [[ "$os_release" == "11" ]]; then
     cd /root
@@ -475,6 +478,17 @@ if [[ "$os_release" == "11" ]]; then
     rm freepbx.js
     rm server.js
 fi
+
+###########################
+#  Install Certbot
+###########################
+
+apt-get install snapd
+snap install core
+snap install hello-world
+hello-world                  # Test snapd
+
+read - p "check output" CHECKED
 
 updatedb    #### update locate DB
 
