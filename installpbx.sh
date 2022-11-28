@@ -235,9 +235,9 @@ fi
 contrib/scripts/get_mp3_source.sh
 contrib/scripts/install_prereq install
 ./configure --with-pjproject-bundled --with-jansson-bundled
-#make menuselect
+make menuselect
 
-menuset    # configure Asterisk modules
+#menuset    # configure Asterisk modules
 
 read -p "check log" GOON
 
