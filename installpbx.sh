@@ -239,6 +239,8 @@ contrib/scripts/install_prereq install
 
 menuset    # configure Asterisk modules
 
+read -p "check log" GOON
+
 make
 make install
 make progdocs
