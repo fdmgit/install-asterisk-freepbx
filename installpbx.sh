@@ -486,9 +486,12 @@ fi
 apt-get install snapd
 snap install core
 snap install hello-world
-hello-world                  # Test snapd
+hello-world                              # Test snapd
 
 read - p "check output" CHECKED
+snap refresh core
+snap install --classic certbot
+ln -s /snap/bin/certbot /usr/bin/certbot
 
 updatedb    #### update locate DB
 
