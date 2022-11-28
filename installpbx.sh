@@ -65,6 +65,11 @@ menuset () {
     menuselect/menuselect --enable EXTRA-SOUNDS-EN-G722 menuselect.makeopts
 }
 
+inst_apache_modules () {
+    a2enmod rewrite
+    systemctl restart apache2
+}
+
 ######################################
 ####   Var / Const Definition     ####
 ######################################
@@ -337,9 +342,8 @@ echo 'upload_max_filesize = 512M' >> /etc/php/7.4/fpm/php.ini
 echo 'upload_max_filesize = 512M' >> /etc/php/7.4/cli/php.ini
 echo 'upload_max_filesize = 512M' >> /etc/php/7.4/cgi/php.ini
 
-# Enable Apache Rewrite engine 
-a2enmod rewrite
-systemctl restart apache2
+# Install Apache2 Modules 
+inst_apache_modules
 
 ###########################
 #  Install FreePBX 
