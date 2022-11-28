@@ -217,6 +217,7 @@ echo "postfix postfix/mailname string $FQDN" | debconf-set-selections
 echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set-selections
 DEBIAN_FRONTEND=noninteractive apt-get postfix
 
+read -p "check log" GOON
 
 ##############################
 #  Install Asterisk 
@@ -241,8 +242,6 @@ contrib/scripts/install_prereq install
 #make menuselect
 
 menuset    # configure Asterisk modules
-
-read -p "check log" GOON
 
 make
 make install
