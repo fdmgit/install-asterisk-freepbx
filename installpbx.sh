@@ -103,7 +103,7 @@ LCYAN=$(echo -en '\001\033[01;36m\002')
 ####          S T A R T           ####
 ######################################
 
-echo -e "${LYELLOW} Starting ...${NC}"
+echo -e "${LYELLOW} Starting ...  (it will take some time) ${NC}"
 
 apt-get update > /dev/null
 apt-get upgrade -y > /dev/null
