@@ -485,10 +485,6 @@ fi
 
 apt-get -y install snapd 
 /usr/bin/snap install core
-/usr/bin/snap install hello-world
-hello-world                              # Test snapd
-
-read - p "check output" CHECKED
 /usr/bin/snap refresh core
 /usr/bin/snap install --classic certbot
 ln -s /snap/bin/certbot /usr/bin/certbot
