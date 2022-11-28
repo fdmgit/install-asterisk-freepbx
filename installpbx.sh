@@ -159,15 +159,15 @@ sntp -c 0.pool.ntp.org
 ###########################
 
 apt-get -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python unzip shared-mime-info
-wget http://prdownloads.sourceforge.net/webadmin/webmin_2.003_all.deb
-dpkg --install webmin_2.003_all.deb
-rm webmin_2.003_all.deb
+wget http://prdownloads.sourceforge.net/webadmin/webmin_2.010_all.deb
+dpkg --install webmin_2.010_all.deb
+rm webmin_2.010_all.deb
 
-##### Temporary fix for a bug in Webmin 2.003  (27.11.2022)
-wget https://raw.githubusercontent.com/fdmgit/install-asterisk-freepbx/main/websockets-lib-funcs.pl
-cp websockets-lib-funcs.pl /usr/share/webmin/
-chmod +x /usr/share/webmin/websockets-lib-funcs.pl
-rm websockets-lib-funcs.pl
+##### Temporary fix for a bug in Webmin 2.003  (27.11.2022). --> solved 28.11.2022
+#wget https://raw.githubusercontent.com/fdmgit/install-asterisk-freepbx/main/websockets-lib-funcs.pl
+#cp websockets-lib-funcs.pl /usr/share/webmin/
+#chmod +x /usr/share/webmin/websockets-lib-funcs.pl
+#rm websockets-lib-funcs.pl
 #####
 
 
