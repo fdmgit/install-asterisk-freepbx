@@ -217,8 +217,6 @@ echo "postfix postfix/mailname string $FQDN" | debconf-set-selections
 echo "postfix postfix/main_mailer_type string 'Internet Site'" | debconf-set-selections
 DEBIAN_FRONTEND=noninteractive apt-get -y install postfix
 
-read -p "check log" GOON
-
 ##############################
 #  Install Asterisk 
 ##############################
