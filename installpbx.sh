@@ -485,16 +485,12 @@ fi
 
 apt-get -y install snapd
 
-echo -e "$PATH"
-printenv
-
-read -p "Path" whichpath
-
 cp /root/.bashrc /root/.bashrc.orig
 echo -e "export PATH=$PATH:/snap/bin" >> /root/.bashrc
 echo -e "$PATH" > /root/testpath.txt
 source /root/.bashrc
-cp /root/.bashrc.orig /root/.bashrc
+#cp /root/.bashrc.orig /root/.bashrc
+
 /usr/bin/snap install core
 /usr/bin/snap refresh core
 /usr/bin/snap install --classic certbot
