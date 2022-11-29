@@ -451,11 +451,11 @@ if [[ "$FOP2INST" == "Y" ]]; then
     sleep 5
     /usr/local/fop2/generate_override_contexts.pl -w
     sleep 5
-    #service fop2 restart
-    systemctl stop fop2.service
-    systemctl start fop2.service
+    if [[ -f "/var/run/fop2.pid" ]]; then
+        kill $(cat /var/run/fop2.pid) 
+    fi    
+    service fop2 restart
     sleep 5
-    read -p "status FOP2 ?" fopstatus
     rm /usr/src/fop2.tgz
 fi
 
