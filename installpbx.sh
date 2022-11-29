@@ -207,7 +207,7 @@ rm webmin_2.010_all.deb
 apt-get install plocate -y
 updatedb
 
-echo "root:$ROOTPW" | chpasswd   # set root password -
+echo -e "root:$ROOTPW" | chpasswd   # set root password -
 hostnamectl set-hostname $FQDN   # set hostname
 
 
@@ -256,7 +256,7 @@ make samples
 make config
 ldconfig
 
-sleep 15
+sleep 10
 
 cd /root
 groupadd asterisk 
@@ -277,10 +277,7 @@ sed -i 's/\;rungroup = asterisk/rungroup = asterisk/'  /etc/asterisk/asterisk.co
 systemctl start asterisk
 #systemctl enable asterisk
 
-echo 'Sleep now'
-sleep 15
-echo 'Sleep done'
-
+sleep 10
 
 ###########################
 #  Install FreePBX Pre-req
@@ -289,8 +286,8 @@ echo 'Sleep done'
 apt-get update
 apt-get install -y mariadb-server mariadb-client
 
-echo '[mysqld]' >> /etc/mysql/mariadb.cnf
-echo 'sql_mode=NO_ENGINE_SUBSTITUTION'  >> /etc/mysql/mariadb.cnf
+echo -e "[mysqld]" >> /etc/mysql/mariadb.cnf
+echo -e "sql_mode=NO_ENGINE_SUBSTITUTION"  >> /etc/mysql/mariadb.cnf
 
 systemctl restart mysql
 
@@ -354,9 +351,7 @@ inst_apache_modules
 
 systemctl stop asterisk
 
-echo 'Sleep now'
-sleep 15
-echo 'Sleep done'
+sleep 10
 
 ############ Prepare update to support node.js > 11 (only on Debian 11)
 if [[ "$os_release" == "11" ]]; then
@@ -436,8 +431,8 @@ if [[ "$os_release" == "11" ]]; then
     npm install mariadb
 fi
 
-sudo fwconsole reload
-sudo fwconsole restart
+fwconsole reload
+fwconsole restart
 
 ###########################
 #  Install FOP2
@@ -453,8 +448,13 @@ if [[ "$FOP2INST" == "Y" ]]; then
     chmod a+x create_fop2_manager_user.pl
     ./create_fop2_manager_user.pl
     /usr/sbin/asterisk -rx "manager reload"
+    sleep 5
     /usr/local/fop2/generate_override_contexts.pl -w
-    service fop2 restart
+    sleep 5
+    #service fop2 restart
+    systemctl stop fop2.service
+    systemctl start fop2.service
+    sleep 5
     rm /usr/src/fop2.tgz
 fi
 
@@ -485,15 +485,12 @@ fi
 
 apt-get -y install snapd
 
-#echo -e "export PATH=$PATH:/snap/bin" >> /root/.bashrc
 export PATH=$PATH:/snap/bin
 
 /usr/bin/snap install core
 /usr/bin/snap refresh core
 /usr/bin/snap install --classic certbot
 ln -s /snap/bin/certbot /usr/bin/certbot
-
-read -p "Check" checkoutput
 
 updatedb    #### update locate DB
 
