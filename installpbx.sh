@@ -483,11 +483,17 @@ fi
 #  Install Certbot
 ###########################
 
-apt-get -y install snapd 
+apt-get -y install snapd
+
+echo "$PATH"
+printenv
+
+read -p "Path" whichpath
+
 cp /root/.bashrc /root/.bashrc.orig
 echo "$PATH" >> /root/.bashrc
 echo "$PATH" > /root/testpath.txt
-source .bashrc
+source /root/.bashrc
 cp /root/.bashrc.orig /root/.bashrc
 /usr/bin/snap install core
 /usr/bin/snap refresh core
