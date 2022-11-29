@@ -455,6 +455,7 @@ if [[ "$FOP2INST" == "Y" ]]; then
     systemctl stop fop2.service
     systemctl start fop2.service
     sleep 5
+    read -p "status FOP2 ?" fopstatus
     rm /usr/src/fop2.tgz
 fi
 
