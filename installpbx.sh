@@ -485,14 +485,14 @@ fi
 
 apt-get -y install snapd
 
-echo "$PATH"
+echo -e "$PATH"
 printenv
 
 read -p "Path" whichpath
 
 cp /root/.bashrc /root/.bashrc.orig
-echo "$PATH:/snap/bin" >> /root/.bashrc
-echo "$PATH" > /root/testpath.txt
+echo -e "$PATH:/snap/bin" >> /root/.bashrc
+echo -e "$PATH" > /root/testpath.txt
 source /root/.bashrc
 cp /root/.bashrc.orig /root/.bashrc
 /usr/bin/snap install core
