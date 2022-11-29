@@ -451,8 +451,8 @@ if [[ "$FOP2INST" == "Y" ]]; then
     sleep 5
     /usr/local/fop2/generate_override_contexts.pl -w
     sleep 5
-    if [[ -f "/var/run/fop2.pid" ]]; then
-        kill $(cat /var/run/fop2.pid) 
+    if [[ -f "/var/run/fop2.pid" ]]; then    # is fop2_server running ?
+        kill $(cat /var/run/fop2.pid)        # get PID and kill the fop2_server process
     fi    
     service fop2 restart
     sleep 5
