@@ -485,11 +485,8 @@ fi
 
 apt-get -y install snapd
 
-cp /root/.bashrc /root/.bashrc.orig
-echo -e "export PATH=$PATH:/snap/bin" >> /root/.bashrc
-echo -e "$PATH" > /root/testpath.txt
-source /root/.bashrc
-#cp /root/.bashrc.orig /root/.bashrc
+#echo -e "export PATH=$PATH:/snap/bin" >> /root/.bashrc
+export PATH=$PATH:/snap/bin
 
 /usr/bin/snap install core
 /usr/bin/snap refresh core
