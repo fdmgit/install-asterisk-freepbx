@@ -491,7 +491,7 @@ printenv
 read -p "Path" whichpath
 
 cp /root/.bashrc /root/.bashrc.orig
-echo "$PATH" >> /root/.bashrc
+echo "$PATH:/snap/bin" >> /root/.bashrc
 echo "$PATH" > /root/testpath.txt
 source /root/.bashrc
 cp /root/.bashrc.orig /root/.bashrc
