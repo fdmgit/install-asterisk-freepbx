@@ -484,10 +484,17 @@ fi
 ###########################
 
 apt-get -y install snapd 
+cp /root/.bashrc /root/.bashrc.orig
+echo "$PATH" >> /root/.bashrc
+echo "$PATH" > /root/testpath.txt
+source .bashrc
+cp /root/.bashrc.orig /root/.bashrc
 /usr/bin/snap install core
 /usr/bin/snap refresh core
 /usr/bin/snap install --classic certbot
 ln -s /snap/bin/certbot /usr/bin/certbot
+
+read -p "Check" checkoutput
 
 updatedb    #### update locate DB
 
