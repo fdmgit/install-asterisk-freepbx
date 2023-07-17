@@ -194,10 +194,10 @@ sntp -c 0.pool.ntp.org
 #  Install Webmin
 ###########################
 
-apt-get -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions python unzip shared-mime-info
-wget http://prdownloads.sourceforge.net/webadmin/webmin_2.010_all.deb
-dpkg --install webmin_2.010_all.deb
-rm webmin_2.010_all.deb
+apt-get -y install perl libnet-ssleay-perl openssl libauthen-pam-perl libpam-runtime libio-pty-perl apt-show-versions unzip shared-mime-info
+wget https://github.com/webmin/webmin/releases/download/2.021/webmin_2.021_all.deb
+dpkg --install webmin_2.021_all.deb
+rm webmin_2.021_all.deb
 
 
 ##############################
